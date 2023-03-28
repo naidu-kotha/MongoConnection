@@ -1,0 +1,172 @@
+// Select the database to use.
+use('Recykal');
+
+
+
+// db.student.drop();
+
+// db.student.insertOne({
+//    "name": "Naidu", "age": 25
+// });
+
+// _id is immutable. we can't change it after creation
+
+// Insert a few documents into the sales collection.
+// db.student.insertMany([
+//     {'_id':2, "name": "Revi", "age": 24},
+//     {'_id':3, "name": "Jayaram", "age": 24},
+//     {'_id':4, "name": "Praveen", "age": 25},
+//     {'_id':5, "name": "Mohan", "age": 23 },
+//     {'_id':6, "name": "Manikanta", "age": 26},
+//     {'_id':7, "name": "Uday", "age": 24},
+//     {'_id':8, "name": "Sai Ganesh", "age": 23},
+// ]);
+
+
+// db.student.find({name: /ra/});
+
+// db.student.find({_id:2});
+
+// db.student.find({_id: {$in: [2, 5, 6]}});
+
+
+// db.student.find({_id: {$lt: 4}});
+// similar commands (lessthan : $lt, greater than or equals to: $gte, less than or equals to: $lte)
+
+
+// Replace entire object with a new Object. We need to send the filter and replacement value.
+
+// db.student.replaceOne({_id: ObjectId("64217e78e6b25058012e7b9b")}, {"name": "Naidu Kotha", "age": 25})
+
+// db.student.replaceOne({_id: ObjectId("64217e78e6b25058012e7b9b")}, {"name": "Naidu Kotha"})
+
+// db.student.find();
+
+// db.student.findOne({name: "Revi"});
+
+// Update. We need to send the filter and update value.
+// Set method adds additional data and replaces only if the data exists in an object
+
+// db.student.updateOne(
+//     {_id: 2},
+//     { $set: {
+//       score: [
+//         {"React": 100},
+//         {"Java": 100},
+//         {"Sql": 100},
+//       ]
+//     }},
+// )
+
+
+
+// db.student.find();
+
+
+// UPSERT option (Update if available or Insert)
+
+// db.student.updateOne(
+//     {_id: 10},
+//     { $set: {
+//       name : 'Revi',
+//       score: [
+//         {"React": 100},
+//         {"Java": 100},
+//         {"Sql": 100},
+//         {"mongo": 100},
+//       ]
+//     }},
+//     {upsert: true}
+// )
+
+
+// db.student.find();
+
+
+// db.student.updateOne(
+//     {_id: 2},
+//     { $set: {
+//       score: [
+//         {"React": 100},
+//         {"Java": 100},
+//         {"Sql": 100},
+//         {"mongo": 100},
+//       ],
+//       branch: [],
+//     }},
+// )
+
+// db.student.find();
+
+// The $push operator adds a new value to the branch array field.
+
+// db.student.updateOne(
+//     {_id: 2},
+//     {$push: {
+//         "branch": 'Mech',
+//     }}
+// )
+
+// db.student.find();
+
+// Find and modify. Updates and gets the data in a single call. accepts query, update and
+//  a "new" which accepts a boolean value and returns the updated data if the value is true.
+
+// db.student.findAndModify({
+//     query: {_id: 2},
+//     update: {score: [
+//         {"React": 110},
+//     ]},
+// })
+
+// db.student.find();
+
+// db.student.findAndModify({
+//     query: {_id: 2},
+//     update: {
+//         name: 'Revi',
+//         score: [
+//         {"React": 100},
+//         ],
+//         age: 23},
+//     new: true,
+// })
+
+// UpdateMany filter document, update document. Not widely used.
+
+// db.student.updateMany(
+//     {name: 'Revi'},
+//     { 
+//     $set: {
+//       score: [
+//         {"React": 200},
+//       ]
+//     }}
+// )
+
+// db.student.find(
+//     {name: "Revi"}
+// );
+
+
+// db.student.deleteOne(
+//     {_id: 10}
+// )
+
+// db.student.find();
+
+// db.student.deleteMany(
+//     {_id: {$gt: 6}}
+// )
+
+// db.student.deleteMany(
+//     {_id: {$in: [5, 6]}}
+// )
+
+// db.student.find();
+
+
+// rename and drop collection
+
+
+// db.student.renameCollection('students', 'student');

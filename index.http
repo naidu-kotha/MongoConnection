@@ -1,0 +1,30 @@
+###
+GET http://localhost:5000/students
+
+###
+
+
+POST http://localhost:5000/addStudent
+Content-Type: application/json
+
+{
+    "_id":"10",
+    "name":"Revi",
+    "age":"23"
+}
+
+###
+
+
+PUT http://localhost:5000/updateStudent/2/
+Content-Type: application/json
+
+{
+    "age": 16
+}
+
+###
+
+DELETE http://localhost:5000/deleteStudent/100/
+
+###
